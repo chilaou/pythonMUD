@@ -19,8 +19,8 @@ function takeConsoleInput() {
 
 function outputToConsole(msg) {
     var cOut = document.getElementById("console-out");
-    cOut.value += "\n(" + STATS.lines_input + ", " + STATS.lines_output + "): " + msg;
     incStat("lines_output");
+    cOut.value += "\n(" + STATS.lines_input + ", " + STATS.lines_output + "): " + msg;
 }
 
 function incStat(key) {
