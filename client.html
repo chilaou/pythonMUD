@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title> WebMUD Client </title>
+        <script src="client.js"></script>
+        <link rel="stylesheet" type="text/css" href="client.css">
+    </head>
+    <body>
+        <div id="container-client" class="container">
+            <div id="container-console" class="container">
+                <form action="#" onsubmit="return doConsoleInput();" name="console-form" id="console-form" autocomplete="off" method="get">
+                    <textarea name="console-out" id="console-out" rows="20" cols="80" readonly>Console output will appear here.</textarea><br />
+                    <input type="text" size="80" name="console-in" id="console-in" value=""  />
+                    <input type="submit" value="->" id="console-submit" /><br />
+                </form>
+            </div>
+    </body>
+</html>
+
