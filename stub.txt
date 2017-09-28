@@ -1,0 +1,15 @@
+[{
+    "time":"20170927215647.000000",
+    "type":"console-out",
+    "data": {
+        "msg":"I GOT HIT BY A AIRPLANE"
+    }
+},{
+    "time":"20170927215809.000000",
+    "type":"console-in-flash",
+    "data": {
+        "seq":["#F00","#FFF","#F08","#FFF","#F0F"],
+        "speed":"200"
+    }
+}]
+
