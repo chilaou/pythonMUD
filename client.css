@@ -1,0 +1,93 @@
+body {
+    background-color: #000;
+    color: #FFF;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+#console-out {
+    background-color: #000;
+    font-family: monospace;
+    color: #FFF;
+}
+
+#console-in {
+    background-color: #FFF;
+    font-family: monospace;
+    color: #707;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+#container-client {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #044;
+    padding: 15px;
+    margin: 0px;
+    height: auto;
+    width: auto;
+}
+
+#container-ui-top {
+    min-height: 100px;
+    display: block;
+    background-color: #844;
+}
+
+#container-ui-middle {
+    height: auto;
+    width: auto;
+    white-space: nowrap;
+    background-color: #484;
+}
+
+#container-ui-bottom {
+    min-height: 100px;    
+    display: block;
+    background-color: #448;
+}
+
+#container-ui-left {
+    min-height: 400px;
+    min-width: 100px;
+    background-color: #884;
+}
+
+#container-ui-center {
+    background-color: #848;
+    padding: 20px;
+}
+
+#container-ui-right {
+    min-height: 400px;
+    min-width: 100px;    
+    background-color: #488;
+}
+
+#container-console {
+    background-color: #800;
+    width: auto;
+    height: auto;
+}
+
+.container {
+    position: relative;
+    display: inline-block;
+    top: 0px;
+    left: 0px;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+    width: auto;
+    background-color: #0FF;
+}
+
+#console-form {
+    margin: 0px;
+}
+

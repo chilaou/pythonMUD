@@ -6,13 +6,20 @@
     </head>
     <body>
         <div id="container-client" class="container">
-            <div id="container-console" class="container">
-                <form action="#" onsubmit="return doConsoleInput();" name="console-form" id="console-form" autocomplete="off" method="get">
-                    <textarea name="console-out" id="console-out" rows="20" cols="80" readonly>Console output will appear here.</textarea><br />
-                    <input type="text" size="80" name="console-in" id="console-in" value="" placeholder="Type here..." />
-                    <input type="submit" value="->" id="console-submit" /><br />
-                </form>
+            <div id="container-ui-top" class="container"></div>
+            <div id="container-ui-middle" class="container">
+                <div id="container-ui-left" class="container"></div>
+                <div id="container-ui-center" class="container">
+                    <div id="container-console" class="container">
+                        <form action="#" onsubmit="return doConsoleInput();" name="console-form" id="console-form" autocomplete="off" method="get">
+                            <textarea name="console-out" id="console-out" rows="20" cols="80" readonly>Console output will appear here.</textarea><br />
+                            <input type="text" size="80" name="console-in" id="console-in" value="" placeholder="Type here..." />
+                        </form>
+                    </div>
+                </div>
+                <div id="container-ui-right" class="container"></div>
             </div>
+            <div id="container-ui-bottom" class="container"></div>
     </body>
 </html>
 
