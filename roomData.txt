@@ -1,0 +1,42 @@
+# database of rooms
+# every room is denoted by r, then seven numbers. r1234567
+# Every room has the following attributes:
+# Name
+# Desc
+# Path
+# Item
+#
+# We could make it so a room can only hold like 64 items, that way people don't mess with people with
+# item spam. Although that would be a hilarious trick.
+#
+# Now, instead of assigning people to rooms, it you wanted to see everyone who is in a room,
+# you should look through the active character classes and see who has a presence that matches the
+# current room id.
+# Items are different, because they're not going to be classed, I don't think.
+# They're static pieces of information that won't do much on their own.
+# I'm not sure how to do it with mobs.  They would probably be classes, too.
+# Would it be very intensive to look through the WHOLE LIST OF MOBS every time you look
+# in a room, though?
+# WHY AM I NOT DOING THIS AS AN ARRAY OF DICTIONARIES
+# room# is the index, then a dictionary in there for name, desc, path, items. 
+# for pathing, it also might be easier to stick to six directions? but then again.
+# I'm copping out of looking for available exits via text. I COULD use another dictionary
+# with key-value pairs for the direction, and which room it connects to.
+# There is also no reason that because you leave on room going UP, that it shouldn't connect
+# to another room's east side, so there is no reason to pair them.
+# if I set these up as JSON objects, then that would allow me to use the information in the
+# web client easily as well.
+r0000001name The Basic Room
+r0000001desc This is a very basic room. Everything is basic. It was made in basic.
+r0000001path (n, r0000002)
+r0000001item i0000003 
+-
+r0000002name Another Basic Room
+r0000002desc This is a somewhat basic room. It was made in Visual Basic.
+r0000002path (s, r0000001) (e, r0000003)
+r0000002item 
+-
+r0000003name The Snowy Precipice
+r0000003desc It's got snow, y'all.
+r0000003path (w, r0000002) (n, r0000001)
+r0000003item i0000001 i0000002 i0000003 i0000004
