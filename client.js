@@ -18,6 +18,9 @@ function doConsoleInput() {
         case "airplane":
             doAirplane(cmd);
             break;
+        case "poll":
+            doPoll(cmd);
+            break;
         case "~stats":
             outputToConsole(JSON.stringify(STATS));
             break;
@@ -70,28 +73,32 @@ function doAirplane(cmd) {
     var cOut = document.getElementById("console-out");
     cOut.style.backgroundColor="#AEF";
     setTimeout(function() { cOut.style.backgroundColor="#000"; },3000);
-    setTimeout(doAirplane2, 5000);
+    setTimeout(doAirplane2, 5000, cmd);
 }
 
-function doAirplane2(cmd) { // Notice how this is _after_ a reference to it above. Lazy execution!
-    var xh = new XMLHttpRequest(); // Poorly named, this is ANY async request now
-    var url = "https://raw.githubusercontent.com/chilaou/pythonMUD/master/stub.txt";
-    // We can't access a local file with this, because JS is VERY strict about file access 
-    xh.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) { // It needs to be 'finished' + OK
-            var response = JSON.parse(this.responseText); // 'this' needs explaining LOL
+function doAirplane2(cmd) {
+    doAsyncRequest(cmd, "http://localhost:7777/airplane");
+}
+
+function doPoll(cmd) {
+    doAsyncRequest(cmd, "http://localhost:7777/poll");
+    incStat("polls_sent");
+}
+
+function doAsyncRequest(cmd, url) {
+    var xh = new XMLHttpRequest();
+    xh.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(this.responseText);
             incStat("async_msg_recv");
             for (var i = 0; i < response.length; i++) {
                 doServerCommand(response[i]);
             }
         }
-        // Anything here will run a lot more, because a request changes state a LOT
-        incStat("async_state_updates");        
     }
-    xh.open("GET", url, true); // I don't know what true means, I think that's the async
+    xh.open("GET", url, true);
     xh.send();
     incStat("async_msg_sent");
-    // Notice how we have to give it the instructions first, then send it off. 
 }
 
 function doServerCommand(cmd) {
