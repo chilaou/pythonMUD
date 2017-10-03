@@ -5,6 +5,13 @@ function doConsoleInput() {
     STATS["last_input_time"] = (new Date()).getTime();
     var cmd = takeConsoleInput();
     // Sanitization can happen here, or in takeConsoleInput?
+    /*  This looks like the point at which I would look to take the input I've been
+        given and do something with it in the Python script. For the special cases
+        Jake lined out below, those are commands that won't even make it into the
+        Python script, because I'll only pick up things that enter the default case.
+        I could also have my game return if something was a bad input, rather than
+        assuming that if it makes it to the default case, it's a bad input.
+    */
 
     var parts = cmd.split(" ");
     switch(parts[0].toLowerCase()) {
@@ -15,6 +22,7 @@ function doConsoleInput() {
             outputToConsole(JSON.stringify(STATS));
             break;
         default:
+            outputToConsole("Kay you said the first part was: " + parts[0]);
             outputToConsole("WTF is `" + cmd + "` supposed to mean?");
             doBadInput();
             break;
@@ -37,6 +45,7 @@ function outputToConsole(msg) {
     var cOut = document.getElementById("console-out");
     incStat("lines_output");
     cOut.value += "\n" + msg;
+    cOut.scrollTop = cOut.scrollHeight - cOut.clientHeight;
 }
 
 function incStat(key, amt = 1) { // Default parameter, syntactic sugar
@@ -60,7 +69,7 @@ function doAirplane(cmd) {
     incStat("airplanes_activated");
     var cOut = document.getElementById("console-out");
     cOut.style.backgroundColor="#AEF";
-    setTimeout(function() { cOut.style.backgroundColor="#FFF"; },3000);
+    setTimeout(function() { cOut.style.backgroundColor="#000"; },3000);
     setTimeout(doAirplane2, 5000);
 }
 
