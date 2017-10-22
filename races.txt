@@ -1,0 +1,1 @@
+{"alien": {"statMod": {"vit": "1"}, "desc": "The not-so-basic starter race."}, "human": {"statMod": {"cha": "1"}, "desc": "The basic starter race."}}

@@ -25,9 +25,10 @@ function doConsoleInput() {
             outputToConsole(JSON.stringify(STATS));
             break;
         default:
-            outputToConsole("Kay you said the first part was: " + parts[0]);
-            outputToConsole("WTF is `" + cmd + "` supposed to mean?");
-            doBadInput();
+        //    outputToConsole("Kay you said the first part was: " + parts[0]);
+            doAsyncRequest(cmd, "http://localhost:7777/playerCommand");
+            incStat("player_commands_to_server");
+            //doBadInput();
             break;
     }
 
@@ -96,8 +97,8 @@ function doAsyncRequest(cmd, url) {
             }
         }
     }
-    xh.open("GET", url, true);
-    xh.send();
+    xh.open("POST", url, true);
+    xh.send(cmd);
     incStat("async_msg_sent");
 }
 

@@ -1,0 +1,1 @@
+{"teamlead": {"skill": "encourage", "desc": "The 'I think I'm special' class. :P"}, "developer": {"skill": "deadline", "desc": "The basic starter class!"}, "engineer": {"skill": "betaTest", "desc": "The not-so-basic starter class."}}
